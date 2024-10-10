@@ -3,7 +3,7 @@
 
 echo "obtengo la contraseña de mi usuario vagrant y la guardo en una variable"
 
-CLAVE_HASH=$(sudo grep "^vagrant:" /etc/shadow | cut -d: -f2)
+CLAVE_HASH=$(sudo grep "vagrant:" /etc/shadow | awk -F: '{print $2}')
 
 echo "Primero creo los grupos"
 groupadd p1c2_2024_gAlumno
