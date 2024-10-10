@@ -17,4 +17,10 @@ useradd -m -s /bin/bash -c "Batman" -G p1c2_2024_gAlumno -p "CLAVE_HASH" p1c2_20
 useradd -m -s /bin/bash -c "Gonzalo" -G p1c2_2024_gProfesores -p "CLAVE_HASH" p1c2_2024_P1
 
 
+echo "Modifico los permisos de los usuarios"
+
+sudo chmod 750 /Examenes-UTN/alumno_1
+sudo chmod 760 /Examenes-UTN/alumno_2
+sudo chmod 700 /Examenes-UTN/alumno_3
+sudo chmod 005 /Examenes-UTN/profesores
 
