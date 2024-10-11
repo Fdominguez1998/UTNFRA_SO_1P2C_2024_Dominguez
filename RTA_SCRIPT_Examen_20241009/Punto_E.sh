@@ -1,21 +1,20 @@
-#!bin/bash
+#!/bin/bash
 
 echo "Busco los datos"
 
-IP_PUBLICA=$(curl -s ifconfig.me)
+mkdir -p RTA_ARCHIVOS_Examen_2024-10-09
 
-USUARIO=$(whoami)
+echo "Obtener el total de memoria RAM"
+RAM_TOTAL=$(grep -i 'MemTotal:' /proc/meminfo)
 
-HASH_USUARIO=$(sudo grep "$USUARIO:" /etc/shadow | awk -F: '{print $2}')
+echo "Obtener la información del fabricante del chasis"
+FABRICANTE_CHASIS=$(sudo dmidecode -t chassis | grep "Manufacturer" | awk -F: '{print $2}' )
 
-REPO_URL=$(git remote get-url origin)
+echo "Creo el archivo del filtro y cargo los datos en él"
 
+echo "Crear y cargar los datos en el archivo Filtro_Basico.txt"
 
-echo "Creo el archivo del filtro y cargo los datos en el"
+echo "$RAM_TOTAL" > "RTA_ARCHIVOS_Examen_2024-10-09/Filtro_Basico.txt"
+echo "Fabricante del chasis: $FABRICANTE_CHASIS" >> "RTA_ARCHIVOS_Examen_2024-10-09/Filtro_Basico.txt"
 
-echo "Mi IP publica es $IP_PUBLICA" > Filtro_Avanzado.txt
-echo "Mi usuario es: $USUARIO" >> Filtro_Avanzado.txt
-echo "El HASH de mi usuario es $HASH_USUARIO" >> Filtro_Avanzado.txt
-echo "El URL de mi repositorio es $REPO_URL" >> Filtro_Avanzado.txt
-
-
+echo "Los datos han sido guardados en RTA_ARCHIVOS_Examen_2024-10-09/Filtro_Basico.txt"
