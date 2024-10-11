@@ -1,4 +1,4 @@
-#!bin/bash
+#!/bin/bash
 
 echo "Realizo las particiones"
 sudo fdisk /dev/sdc << EOF
@@ -50,7 +50,7 @@ echo
 echo "Muestro como quedo..."
 sudo fdisk /dev/sdc -l
 echo
-echo"Realizo los formateros"
+echo "Realizo los formateros"
 
 sudo mkfs.ext4 /dev/sdc1
 sudo mkfs.ext4 /dev/sdc2
