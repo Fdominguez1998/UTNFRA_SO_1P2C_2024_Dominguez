@@ -2,7 +2,7 @@
 
 echo "Creo la Estructura asimetrica"
 
-sudo mkdir -p Estructura_Asimetrica/{correo,clientes}/carta_{1..100} Estructura_Asimetrica/correo/carteros{1..10}
+sudo mkdir -p Estructura_Asimetrica/{correo,cliente}/cartas_{1..100} Estructura_Asimetrica/correo/carteros_{1..10}
 
 echo "Lo muestro"
 
